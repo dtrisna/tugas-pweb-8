@@ -6,7 +6,7 @@ use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\MenuDBHelperController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::resource('menu', MenuController::class);
