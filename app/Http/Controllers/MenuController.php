@@ -11,7 +11,7 @@ class MenuController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index() {
+public function index() {
     $menu = MenuKopi::all();// atau bisa kosong dulu
     return view('menu.index', compact('menu'));
 }
