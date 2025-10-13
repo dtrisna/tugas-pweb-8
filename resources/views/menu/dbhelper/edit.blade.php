@@ -9,11 +9,11 @@
     <label>Nama:</label>
     <input type="text" name="nama" value="{{ $menu->nama }}" required>
 
-    <label>Harga:</label>
-    <input type="number" name="harga" value="{{ $menu->harga }}" required>
-
     <label>Kategori:</label>
     <input type="text" name="kategori" value="{{ $menu->kategori }}">
+
+    <label>Harga:</label>
+    <input type="number" name="harga" value="{{ $menu->harga }}" required>
 
     <label>Tersedia:</label>
     <select name="tersedia">
@@ -21,5 +21,5 @@
         <option value="0" {{ !$menu->tersedia ? 'selected' : '' }}>Tidak</option>
     </select>
 
-    <button type="submit">Update</button>
+    <button type="submit">Update Menu</button>
 </form>

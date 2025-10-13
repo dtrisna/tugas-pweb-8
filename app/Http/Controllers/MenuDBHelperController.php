@@ -38,7 +38,7 @@ class MenuDBHelperController extends Controller
             now()
         ]);
 
-        return redirect()->route('dbhelper.index')->with('success', 'Menu berhasil ditambahkan!');
+        return redirect()->route('dbhelper.manage')->with('success', 'Menu berhasil ditambahkan!');
     }
 
     public function edit($id)
@@ -67,12 +67,21 @@ class MenuDBHelperController extends Controller
             $id
         ]);
 
-        return redirect()->route('dbhelper.index')->with('success', 'Menu berhasil diupdate!');
+        return redirect()->route('dbhelper.manage')->with('success', 'Menu berhasil ditambahkan!');
+
     }
 
     public function destroy($id)
     {
         DB::delete('DELETE FROM menu_kopi WHERE id = ?', [$id]);
-        return redirect()->route('dbhelper.index')->with('success', 'Menu berhasil dihapus!');
+        return redirect()->route('dbhelper.manage')->with('success', 'Menu berhasil ditambahkan!');
     }
+
+    public function manage()
+    {
+        $menu = DB::select('SELECT * FROM menu_kopi');
+        return view('menu.dbhelper.manage', compact('menu'));
+    }
+
+
 }
