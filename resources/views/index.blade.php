@@ -1,6 +1,4 @@
-<link rel="stylesheet" href="{{ asset('css/style.css') }}">
-
-<h2 class="section-title">Daftar Transaksi</h2>
+<h2>Daftar Transaksi</h2>
 
 <table>
     <thead>

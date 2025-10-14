@@ -28,8 +28,8 @@ public function store(Request $request)
     // Insert data ke database
     MenuKopi::create([
         'nama' => $request->nama,
-        'harga' => $request->harga,
         'kategori' => $request->kategori,
+        'harga' => $request->harga,
         'tersedia' => $request->tersedia,
     ]);
 
