@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+
 <h2>Riwayat Transaksi</h2>
 <table>
   <tr><th>Menu</th><th>Nama Pemesan</th><th>No HP</th><th>Tanggal</th><th>Waktu</th></tr>
