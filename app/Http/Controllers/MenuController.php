@@ -8,13 +8,12 @@ use App\Models\MenuKopi;
 
 class MenuController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
 public function index() {
-    $menu = MenuKopi::all();// atau bisa kosong dulu
+    $menu = MenuKopi::with('transaksi')->get(); // ambil menu beserta transaksi
     return view('menu.index', compact('menu'));
 }
+
 
 public function store(Request $request)
 {

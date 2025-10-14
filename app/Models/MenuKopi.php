@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class MenuKopi extends Model
 {
     protected $table = 'menu_kopi';
-    protected $fillable = ['nama', 'harga', 'kategori', 'tersedia'];
+
+    public function transaksi()
+    {
+        return $this->hasMany(Transaksi::class, 'menu_id');
+    }
 }

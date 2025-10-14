@@ -12,8 +12,9 @@
     <div style="margin-top: 20px;">
         <a href="{{ url('/menu') }}">🔗 Lihat dengan ORM</a><br><br>
         <a href="{{ url('/menu/querybuilder/manage') }}">🔗 Lihat dengan Query Builder</a><br><br>
-        {{-- <a href="{{ url('/menu/dbhelper/show') }}">🔗 Lihat dengan DB Helper</a><br><br> --}}
         <a href="{{ url('/menu/dbhelper/manage') }}">🔗 Lihat dengan DB Helper</a>
+        <a href="{{ route('transaksi.index') }}">🔗 Lihat Daftar Pemesanan</a>
+
 
     </div>
 </body>
