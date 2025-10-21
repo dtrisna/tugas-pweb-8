@@ -45,21 +45,6 @@
     </tbody>
 </table>
 
-<!-- Transaksi Terkait -->
-@foreach($menu as $item)
-    <div style="margin-top: 10px;">
-        <h4>Transaksi untuk: {{ $item->nama }}</h4>
-        @if($item->transaksi && $item->transaksi->count())
-            <ul>
-                @foreach($item->transaksi as $trx)
-                    <li>{{ $trx->jumlah }} pcs - Rp{{ $trx->total }} ({{ $trx->created_at }})</li>
-                @endforeach
-            </ul>
-        @else
-            <p><em>Belum ada transaksi.</em></p>
-        @endif
-    </div>
-@endforeach
 
 <!-- Navigasi ke metode lain -->
 <div style="margin-top: 20px;">

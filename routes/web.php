@@ -32,8 +32,6 @@ Route::get('/menu/dbhelper/create', [MenuDBHelperController::class, 'create'])->
 Route::get('/menu/dbhelper/manage', [MenuDBHelperController::class, 'manage'])->name('dbhelper.manage');
 Route::get('/menu/dbhelper/{id}/edit', [MenuDBHelperController::class, 'edit'])->name('dbhelper.edit');
 
-
-//query builder
 Route::get('/menu/querybuilder/manage', [MenuQueryBuilderController::class, 'manage'])->name('querybuilder.manage');
 Route::post('/menu/querybuilder', [MenuQueryBuilderController::class, 'store'])->name('querybuilder.store');
 Route::get('/menu/querybuilder/{id}/edit', [MenuQueryBuilderController::class, 'edit'])->name('querybuilder.edit');

@@ -20,7 +20,7 @@ class MenuDBHelperController extends Controller
 
     public function store(Request $request)
     {
-        // Validasi input
+
         $request->validate([
             'nama' => 'required|string|max:100',
             'harga' => 'required|integer|min:0',
@@ -28,7 +28,6 @@ class MenuDBHelperController extends Controller
             'tersedia' => 'required|boolean',
         ]);
 
-        // Insert data ke database
         DB::insert('INSERT INTO menu_kopi (nama, harga, kategori, tersedia, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)', [
             $request->nama,
             $request->harga,
@@ -49,7 +48,6 @@ class MenuDBHelperController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Validasi input
         $request->validate([
             'nama' => 'required|string|max:100',
             'harga' => 'required|integer|min:0',
@@ -57,7 +55,6 @@ class MenuDBHelperController extends Controller
             'tersedia' => 'required|boolean',
         ]);
 
-        // Update data
         DB::update('UPDATE menu_kopi SET nama = ?, harga = ?, kategori = ?, tersedia = ?, updated_at = ? WHERE id = ?', [
             $request->nama,
             $request->harga,
@@ -74,7 +71,7 @@ class MenuDBHelperController extends Controller
     public function destroy($id)
     {
         DB::delete('DELETE FROM menu_kopi WHERE id = ?', [$id]);
-        return redirect()->route('dbhelper.manage')->with('success', 'Menu berhasil ditambahkan!');
+        return redirect()->route('dbhelper.manage')->with('success', 'Menu berhasil dihapus!');
     }
 
     public function manage()

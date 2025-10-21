@@ -10,14 +10,14 @@ class MenuController extends Controller
 {
 
 public function index() {
-    $menu = MenuKopi::with('transaksi')->get(); // ambil menu beserta transaksi
+    $menu = MenuKopi::with('transaksi')->get(); 
     return view('menu.index', compact('menu'));
 }
 
 
 public function store(Request $request)
 {
-    // Validasi input
+
     $request->validate([
         'nama' => 'required|string|max:100',
         'harga' => 'required|integer|min:0',
@@ -25,7 +25,7 @@ public function store(Request $request)
         'tersedia' => 'required|boolean',
     ]);
 
-    // Insert data ke database
+
     MenuKopi::create([
         'nama' => $request->nama,
         'kategori' => $request->kategori,
@@ -33,7 +33,7 @@ public function store(Request $request)
         'tersedia' => $request->tersedia,
     ]);
 
-    // Redirect atau response
+
     return redirect()->route('menu.index')->with('success', 'Menu berhasil ditambahkan!');
 }
 
@@ -42,17 +42,13 @@ public function store(Request $request)
     return view('menu.create');
 }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(string $id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit($id)
 {
     $menu = MenuKopi::findOrFail($id);
@@ -60,9 +56,7 @@ public function store(Request $request)
 }
 
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, $id)
 {
     $request->validate([
@@ -84,9 +78,7 @@ public function store(Request $request)
 }
 
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy($id)
 {
     $menu = MenuKopi::findOrFail($id);
