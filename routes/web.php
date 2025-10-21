@@ -5,9 +5,11 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\MenuDBHelperController;
 use App\Http\Controllers\qb\MenuQueryBuilderController;
+use App\Http\Controllers\LoginController;
+
 
 Route::get('/', function () {
-    return view('home');
+    return view('login.login');
 });
 
 // Route::resource('menu', MenuController::class);
@@ -37,3 +39,16 @@ Route::post('/menu/querybuilder', [MenuQueryBuilderController::class, 'store'])-
 Route::get('/menu/querybuilder/{id}/edit', [MenuQueryBuilderController::class, 'edit'])->name('querybuilder.edit');
 Route::put('/menu/querybuilder/{id}', [MenuQueryBuilderController::class, 'update'])->name('querybuilder.update');
 Route::delete('/menu/querybuilder/{id}', [MenuQueryBuilderController::class, 'destroy'])->name('querybuilder.destroy');
+
+
+
+
+Route::get('/', [LoginController::class, 'showLoginForm'])->name('login.form');
+Route::post('/login', [LoginController::class, 'login'])->name('login.process');
+
+Route::get('/home', [LoginController::class, 'home'])->name('home');
+
+Route::get('/logout', function () {
+    session()->forget('login');
+    return redirect()->route('login.form');
+})->name('logout');
