@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <title>Login - Kopi Kenongo</title>
-<link rel="stylesheet" href="{{ asset('css/login.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 </head>
 <body>
   <h1>Login ke Website Kopi Kenongo</h1>
@@ -15,8 +14,8 @@
 
   <form method="POST" action="{{ route('login.process') }}">
     @csrf
-    <label for="nama">Nama:</label><br>
-    <input type="text" name="nama" id="nama" required><br><br>
+    <label for="name">Nama:</label><br>
+    <input type="text" name="name" id="name" required><br><br>
 
     <label for="password">Password:</label><br>
     <input type="password" name="password" id="password" required><br><br>
