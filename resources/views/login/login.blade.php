@@ -12,18 +12,11 @@
     <p style="color:red; text-align:center;">{{ session('error') }}</p>
   @endif
 
-  <form method="POST" action="{{ route('login.process') }}">
+  <form method="POST" action="{{ route('login') }}">
     @csrf
-    <label for="name">Nama:</label><br>
-    <input type="text" name="name" id="name" required><br><br>
-
-    <label for="password">Password:</label><br>
-    <input type="password" name="password" id="password" required><br><br>
-
-    <label for="nohp">Nomor HP:</label><br>
-    <input type="text" name="nohp" id="nohp" required><br><br>
-
+    <input type="text" name="nohp" placeholder="Nomor HP" required>
+    <input type="password" name="password" placeholder="Password" required>
     <button type="submit">Login</button>
-  </form>
+</form>
 </body>
 </html>

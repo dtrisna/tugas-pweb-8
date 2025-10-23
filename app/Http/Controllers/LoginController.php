@@ -3,6 +3,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
+
 
 class LoginController extends Controller
 {
@@ -14,18 +18,12 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'name' => 'required|string',
             'password' => 'required|string',
             'nohp' => 'required|string',
         ]);
+         $user = User::where('nohp', $request->nohp)->first();
 
-        $user = DB::table('users')
-            ->where('name', $request->name)
-            ->where('password', $request->password)
-            ->where('nohp', $request->nohp)
-            ->first();
-
-        if (!$user) {
+        if (!$user || !Hash::check($request->password, $user->password)) {
             return redirect()->route('login.form')->with('error', 'Login gagal! Periksa kembali data Anda.');
         }
 
@@ -51,5 +49,10 @@ class LoginController extends Controller
     {
         session()->forget(['login', 'user_id', 'name']);
         return redirect()->route('login.form');
+    }
+
+    public function username()
+    {
+        return 'nohp';
     }
 }

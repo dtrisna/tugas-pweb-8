@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class UserSeeder extends Seeder
@@ -11,8 +12,13 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name' => 'Dina',
-            'password' => 'dinaa', // plain text
-            'nohp' => '081515405340',
+            'password' => Hash::make('dinaa'), 
+            'nohp' => '081515403340',
+        ]);
+        User::create([
+            'name' => 'Wawa',
+            'password' => Hash::make('najwa123'), 
+            'nohp' => '085730709558',
         ]);
     }
 }
