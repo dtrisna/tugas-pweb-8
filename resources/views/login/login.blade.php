@@ -12,7 +12,7 @@
     <p style="color:red; text-align:center;">{{ session('error') }}</p>
   @endif
 
-  <form method="POST" action="{{ route('login') }}">
+  <form method="POST" action="{{ route('login.process') }}">
     @csrf
     <input type="text" name="nohp" placeholder="Nomor HP" required>
     <input type="password" name="password" placeholder="Password" required>
